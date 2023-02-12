@@ -1,9 +1,10 @@
 import Feedback from './Feedback/Feedback';
+import s from './App.module.css';
 
-export const App = () => {
+export default function App() {
   return (
-    <div>
+    <div className={s.mainContainer}>
       <Feedback />
     </div>
   );
-};
+}

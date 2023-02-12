@@ -1,26 +1,23 @@
 import s from './Statistics.module.css';
 
-function Statistics({ state }) {
-  let countTotal = state.good + state.neutral + state.bad;
-  let positiveFeedback = ((state.good / countTotal) * 100).toFixed(1);
+export default function Statistics({ good, bad, neutral }) {
+  let totalValue = good + neutral + bad;
+  let totalPercent = ((good / totalValue) * 100).toFixed(1);
+
   return (
     <>
       <h3 className={s.titleStat}>Statistics</h3>
-      {!countTotal ? (
+      {!totalValue ? (
         <p className={s.notiStat}>No feedback given</p>
       ) : (
         <ul className={s.listTeam}>
-          <li className={s.itemsStat}>Good: {state.good}</li>
-          <li className={s.itemsStat}>Neutral: {state.neutral}</li>
-          <li className={s.itemsStat}>Bad: {state.bad}</li>
-          <li className={s.itemsStat}>Total: {countTotal}</li>
-          <li className={s.itemsStat}>
-            Positive feedback: {positiveFeedback}%
-          </li>
+          <li className={s.itemStat}>Good: {good}</li>
+          <li className={s.itemStat}>Neutral: {neutral}</li>
+          <li className={s.itemStat}>Bad: {bad}</li>
+          <li className={s.itemStat}>Total: {totalValue}</li>
+          <li className={s.itemStat}>Positive feedback: {totalPercent}%</li>
         </ul>
       )}
     </>
   );
 }
-
-export default Statistics;

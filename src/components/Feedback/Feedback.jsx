@@ -1,42 +1,38 @@
-import Statistics from 'components/Statistics';
-import { Component } from 'react';
 import s from './Feedback.module.css';
+import { useState } from 'react';
+import Statistics from '../Statistics/Statistics';
 
-class Feedback extends Component {
-  state = {
+export default function Feedback() {
+  const [{ good, neutral, bad }, setState] = useState({
     good: 0,
     neutral: 0,
     bad: 0,
-  };
+  });
 
-  handleOnClick = e => {
-    return this.setState(prevState => ({
+  const handleOnClick = e => {
+    const name = e.target.name;
+    return setState(prevState => ({
       ...prevState,
-      [e.target.name]: prevState[e.target.name] + 1,
+      [name]: prevState[name] + 1,
     }));
   };
 
-  render() {
-    console.log(this.state);
-    return (
-      <>
-        <h3 className={s.title}>Please leave feedback</h3>
-        <div onClick={this.handleOnClick} className={s.btnTeam}>
-          <button type="button" name="good" className={s.btn}>
-            Good
-          </button>
-          <button type="button" name="neutral" className={s.btn}>
-            Neutral
-          </button>
-          <button type="button" name="bad" className={s.btn}>
-            Bad
-          </button>
-        </div>
+  return (
+    <>
+      <h3 className={s.title}>Please leave feedback</h3>
+      <div className={s.btnTeam} onClick={handleOnClick}>
+        <button id={s.btn1} type="button" name="good" className={s.btn}>
+          Good
+        </button>
+        <button id={s.btn2} type="button" name="neutral" className={s.btn}>
+          Neutral
+        </button>
+        <button id={s.btn3} type="button" name="bad" className={s.btn}>
+          Bad
+        </button>
+      </div>
 
-        <Statistics state={this.state} />
-      </>
-    );
-  }
+      <Statistics good={good} bad={bad} neutral={neutral} />
+    </>
+  );
 }
-
-export default Feedback;

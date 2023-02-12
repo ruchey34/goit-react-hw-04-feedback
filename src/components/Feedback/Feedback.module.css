@@ -1,24 +1,47 @@
 .title {
-    display: flex;
-    justify-content: center;
-  }
-  .btnTeam {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    border: 1px solid black;
-    width: 300px;
-    border-radius: 10px;
-    height: 30px;
-    padding: 5px;
-    background-color: blue;
-  }
-  
-  .btn {
-    height: 30px;
-    width: 80px;
-    background-color: aqua;
-    border: 1px solid black;
-    border-radius: 5px;
-  }
+  font-size: 40px;
+  color: #c05805;
+  border-bottom: 2px solid #db9501;
+}
+
+.btnTeam {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  width: 100px;
+  height: 45px;
+  background-color: #6e6702;
+  border: none;
+  border-radius: 5px;
+  color: #2e2300;
+}
+
+#btn1:hover,
+#btn1:focus {
+  transform: translateX(-10px);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #52ab98;
+  border: none;
+}
+
+#btn2:hover,
+#btn2:focus {
+  transform: translateY(-10px);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #2b6777;
+  border: none;
+}
+
+#btn3:hover,
+#btn3:focus {
+  transform: translateX(10px);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #862828;
+  border: none;
+}
+
+.btn:not(:last-child) {
+  margin-right: 10px;
+}
