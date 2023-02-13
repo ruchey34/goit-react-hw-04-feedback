@@ -1,3 +1,4 @@
+import propTypes from 'prop-types';
 import s from './Feedback.module.css';
 import { useState } from 'react';
 import Statistics from '../Statistics/Statistics';
@@ -36,3 +37,8 @@ export default function Feedback() {
     </>
   );
 }
+
+Feedback.propTypes = {
+  options: propTypes.arrayOf(propTypes.string).isRequired,
+  onLeaveFeedback: propTypes.func.isRequired,
+};
